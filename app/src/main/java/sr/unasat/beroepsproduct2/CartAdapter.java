@@ -26,8 +26,6 @@ public class CartAdapter extends CursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
 
-        // getting theviews
-
         TextView vegetableName, price, quantity;
         String total;
 
@@ -36,7 +34,6 @@ public class CartAdapter extends CursorAdapter {
         price = view.findViewById(R.id.priceinOrderSummary);
         quantity = view.findViewById(R.id.quantityinOrderSummary);
 
-        // getting the values by first getting the position of their columns
 
         int name = cursor.getColumnIndex(OrderContract.OrderEntry.COLUMN_NAME);
         int priceofvegetable = cursor.getColumnIndex(OrderContract.OrderEntry.COLUMN_PRICE);

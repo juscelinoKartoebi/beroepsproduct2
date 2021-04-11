@@ -19,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // creating an arraylist
-
         modelList = new ArrayList<>();
         modelList.add(new Model("Komkommer", getString(R.string.komkommer), R.drawable.komkommer));
         modelList.add(new Model("pompoen", getString(R.string.pompoen), R.drawable.pompoen));
@@ -31,10 +29,9 @@ public class MainActivity extends AppCompatActivity {
         modelList.add(new Model("bitawiri", getString(R.string.bitawiri), R.drawable.bitawiri));
         modelList.add(new Model("antroewa", getString(R.string.antroewa), R.drawable.antroewa));
 
-        // recyclerview
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(null));
-        // adapter
+
         mAdapter = new OrderAdapter(this, modelList);
         recyclerView.setAdapter(mAdapter);
 

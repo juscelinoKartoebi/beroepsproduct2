@@ -8,14 +8,10 @@ public class OrderContract {
     public OrderContract() {
     }
 
-    // to understand this you have to study sqllite database but follow me anyways
-    // contentauthority requires you to enter your package name
     public static final String CONTENT_AUTHORITY = "sr.unasat.test.data.OrderProvider";
     public static final Uri BASE_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
-    // this should be similar to your table name
     public static final String PATH = "orderig";
-
 
     public static abstract class OrderEntry implements BaseColumns {
 

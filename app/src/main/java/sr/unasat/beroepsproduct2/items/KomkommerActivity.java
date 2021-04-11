@@ -25,7 +25,7 @@ import sr.unasat.beroepsproduct2.SummaryActivity;
 
 public class KomkommerActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    // first of all we will get the views that are  present in the layout of info
+
 
     ImageView imageView;
     ImageButton plusquantity, minusquantity;
@@ -48,7 +48,7 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
         vegetablePrice = findViewById(R.id.vegetablePrice);
         addtoCart = findViewById(R.id.addtocart);
 
-        // setting the name of drink
+
 
         vegetableName.setText("Komkommer");
 
@@ -56,32 +56,30 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(KomkommerActivity.this, SummaryActivity.class);
-                // once this button is clicked we want to save our values in the database and send those values
-                // right away to summary activity where we display the order info
+
 
 
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(KomkommerActivity.this);
-//set icon
+
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert)
-//set title
+
                         .setTitle("Are you sure?")
-//set message
+
                         .setMessage("clicking to yes wil add this item ")
-//set positive button
+
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                //set what would happen when positive button is clicked
-                                // dialogInterface.cancel();
+
                                 startActivity(intent);
                                 SaveCart();
                             }
                         })
-                        //set negative button
+
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                //set what should happen when negative button is clicked
+
 
                             }
                         })
@@ -95,7 +93,7 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
         plusquantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // coffee price
+
                 int basePrice = 5;
                 quantity++;
                 displayQuantity();
@@ -111,7 +109,7 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
             public void onClick(View v) {
 
                 int basePrice = 5;
-                // because we dont want the quantity go less than 0
+
                 if (quantity == 0) {
                     Toast.makeText(KomkommerActivity.this, "Cant decrease quantity < 0", Toast.LENGTH_SHORT).show();
                 } else {
@@ -131,7 +129,7 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
 
     private boolean SaveCart() {
 
-        // getting the values from our views
+
         String name = vegetableName.getText().toString();
         String price = vegetablePrice.getText().toString();
         String quantity = quantitynumber.getText().toString();

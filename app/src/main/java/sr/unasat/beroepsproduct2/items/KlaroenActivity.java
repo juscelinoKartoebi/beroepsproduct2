@@ -26,7 +26,7 @@ import sr.unasat.beroepsproduct2.SummaryActivity;
 
 public class KlaroenActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    // first of all we will get the views that are  present in the layout of info
+
     ImageView imageView;
     ImageButton plusquantity, minusquantity;
     TextView quantitynumber, vegetableName, vegetablePrice;
@@ -48,7 +48,7 @@ public class KlaroenActivity extends AppCompatActivity implements LoaderManager.
         vegetablePrice = findViewById(R.id.vegetablePrice);
         addtoCart = findViewById(R.id.addtocart);
 
-        // setting the name of drink
+
 
         vegetableName.setText("Klaroen");
 
@@ -56,32 +56,30 @@ public class KlaroenActivity extends AppCompatActivity implements LoaderManager.
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(KlaroenActivity.this, SummaryActivity.class);
-                // once this button is clicked we want to save our values in the database and send those values
-                // right away to summary activity where we display the order info
+
 
 
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(KlaroenActivity.this);
-//set icon
+
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert)
-//set title
+
                         .setTitle("Are you sure?")
-//set message
+
                         .setMessage("clicking to yes wil add this item ")
-//set positive button
+
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                //set what would happen when positive button is clicked
-                                // dialogInterface.cancel();
+
                                 startActivity(intent);
                                 SaveCart();
                             }
                         })
-                        //set negative button
+
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                //set what should happen when negative button is clicked
+
 
                             }
                         })
@@ -111,7 +109,7 @@ public class KlaroenActivity extends AppCompatActivity implements LoaderManager.
             public void onClick(View v) {
 
                 int basePrice = 10;
-                // because we dont want the quantity go less than 0
+
                 if (quantity == 0) {
                     Toast.makeText(KlaroenActivity.this, "Cant decrease quantity < 0", Toast.LENGTH_SHORT).show();
                 } else {
@@ -132,7 +130,7 @@ public class KlaroenActivity extends AppCompatActivity implements LoaderManager.
 
     private boolean SaveCart() {
 
-        // getting the values from our views
+
         String name = vegetableName.getText().toString();
         String price = vegetablePrice.getText().toString();
         String quantity = quantitynumber.getText().toString();

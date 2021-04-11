@@ -53,7 +53,7 @@ public class SummaryActivity extends AppCompatActivity implements LoaderManager.
             public void onClick(View v) {
 
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(sr.unasat.beroepsproduct2.SummaryActivity.this, "My Notification");
-//                builder.setContentTitle("sent");
+
                 builder.setContentText("Your order has been sent");
                 builder.setSmallIcon(R.drawable.ic_launcher_background);
                 builder.setAutoCancel(true);
@@ -104,12 +104,9 @@ public class SummaryActivity extends AppCompatActivity implements LoaderManager.
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.home) {
             Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
