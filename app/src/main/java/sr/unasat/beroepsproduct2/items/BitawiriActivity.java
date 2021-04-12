@@ -70,7 +70,8 @@ public class BitawiriActivity extends AppCompatActivity implements LoaderManager
 
                                 startActivity(intent);
                                 SaveCart();
-                                quantitynumber.setText(null);
+                                int intr = 0;
+                                quantitynumber.setText(intr);
                             }
         })
 
