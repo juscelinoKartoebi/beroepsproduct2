@@ -1,4 +1,4 @@
-package sr.unasat.beroepsproduct2.items;
+package sr.unasat.beroepsproduct2.Activities;
 
 
 import android.app.AlertDialog;
@@ -22,9 +22,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import sr.unasat.beroepsproduct2.Database.OrderContract;
 import sr.unasat.beroepsproduct2.R;
-import sr.unasat.beroepsproduct2.SummaryActivity;
 
-public class BitawiriActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class KousebandActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+
 
     ImageView imageView;
     ImageButton plusquantity, minusquantity;
@@ -37,26 +37,27 @@ public class BitawiriActivity extends AppCompatActivity implements LoaderManager
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bitawiri);
+        setContentView(R.layout.activity_kouseband);
 
         imageView = findViewById(R.id.imageViewInfo);
         plusquantity = findViewById(R.id.addquantity);
-        minusquantity = findViewById(R.id.subquantity);
+        minusquantity  = findViewById(R.id.subquantity);
         quantitynumber = findViewById(R.id.quantity);
         vegetableName = findViewById(R.id.vegetableNameinInfo);
         vegetablePrice = findViewById(R.id.vegetablePrice);
         addtoCart = findViewById(R.id.addtocart);
 
 
-        vegetableName.setText("bitawiri");
+        vegetableName.setText("Kouseband");
 
         addtoCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BitawiriActivity.this, SummaryActivity.class);
+                Intent intent = new Intent(KousebandActivity.this, SummaryActivity.class);
 
 
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(BitawiriActivity.this);
+
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(KousebandActivity.this);
 
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert)
 
@@ -70,18 +71,23 @@ public class BitawiriActivity extends AppCompatActivity implements LoaderManager
 
                                 startActivity(intent);
                                 SaveCart();
-                                int intr = 0;
-                                quantitynumber.setText(intr);
+                                try {
+                                    int intr = 0;
+                                    quantitynumber.setText(intr);
+
+                                }catch (Exception e) {
+                                    System.out.println("exception");
+
+                                }
                             }
-        })
+                        })
 
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 
-
-                    }
-                })
+                            }
+                        })
                 ;
                 AlertDialog Dialog  = alertDialog.create();
                 Dialog.show();
@@ -93,14 +99,12 @@ public class BitawiriActivity extends AppCompatActivity implements LoaderManager
             @Override
             public void onClick(View v) {
 
-                int basePrice = 10;
+                int basePrice = 5;
                 quantity++;
                 displayQuantity();
                 int coffePrice = basePrice * quantity;
                 String setnewPrice = String.valueOf(coffePrice);
                 vegetablePrice.setText(setnewPrice);
-
-
 
             }
         });
@@ -109,10 +113,10 @@ public class BitawiriActivity extends AppCompatActivity implements LoaderManager
             @Override
             public void onClick(View v) {
 
-                int basePrice = 10;
+                int basePrice = 5;
 
                 if (quantity == 0) {
-                    Toast.makeText(BitawiriActivity.this, "Cant decrease quantity < 0", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(KousebandActivity.this, "Cant decrease quantity < 0", Toast.LENGTH_SHORT).show();
                 } else {
                     quantity--;
                     displayQuantity();
@@ -123,6 +127,7 @@ public class BitawiriActivity extends AppCompatActivity implements LoaderManager
                 }
             }
         });
+
 
 
     }
@@ -141,7 +146,7 @@ public class BitawiriActivity extends AppCompatActivity implements LoaderManager
 
         if (mCurrentCartUri == null) {
             Uri newUri = getContentResolver().insert(OrderContract.OrderEntry.CONTENT_URI, values);
-            if (newUri == null) {
+            if (newUri==null) {
                 Toast.makeText(this, "Failed to add to Cart", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Success  adding to Cart", Toast.LENGTH_SHORT).show();
@@ -188,9 +193,11 @@ public class BitawiriActivity extends AppCompatActivity implements LoaderManager
             int price = cursor.getColumnIndex(OrderContract.OrderEntry.COLUMN_PRICE);
             int quantity = cursor.getColumnIndex(OrderContract.OrderEntry.COLUMN_QUANTITY);
 
+
             String nameofvegetable = cursor.getString(name);
             String priceofvegetable = cursor.getString(price);
             String quantityofvegetable = cursor.getString(quantity);
+
 
             vegetableName.setText(nameofvegetable);
             vegetablePrice.setText(priceofvegetable);

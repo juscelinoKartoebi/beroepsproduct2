@@ -1,5 +1,4 @@
-package sr.unasat.beroepsproduct2.items;
-
+package sr.unasat.beroepsproduct2.Activities;
 
 import android.app.AlertDialog;
 import android.app.LoaderManager;
@@ -22,9 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import sr.unasat.beroepsproduct2.Database.OrderContract;
 import sr.unasat.beroepsproduct2.R;
-import sr.unasat.beroepsproduct2.SummaryActivity;
 
-public class KlaroenActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class AntroewaActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
 
     ImageView imageView;
@@ -38,28 +36,26 @@ public class KlaroenActivity extends AppCompatActivity implements LoaderManager.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_klaroen);
+        setContentView(R.layout.activity_antroewa);
 
         imageView = findViewById(R.id.imageViewInfo);
         plusquantity = findViewById(R.id.addquantity);
-        minusquantity  = findViewById(R.id.subquantity);
+        minusquantity = findViewById(R.id.subquantity);
         quantitynumber = findViewById(R.id.quantity);
         vegetableName = findViewById(R.id.vegetableNameinInfo);
         vegetablePrice = findViewById(R.id.vegetablePrice);
         addtoCart = findViewById(R.id.addtocart);
 
 
-
-        vegetableName.setText("Klaroen");
+        vegetableName.setText("antroewa");
 
         addtoCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KlaroenActivity.this, SummaryActivity.class);
+                Intent intent = new Intent(AntroewaActivity.this, SummaryActivity.class);
 
 
-
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(KlaroenActivity.this);
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(AntroewaActivity.this);
 
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert)
 
@@ -73,9 +69,15 @@ public class KlaroenActivity extends AppCompatActivity implements LoaderManager.
 
                                 startActivity(intent);
                                 SaveCart();
-                                int intr = 0;
-                                quantitynumber.setText(intr);
-                            }
+                                try {
+                                    int intr = 0;
+                                    quantitynumber.setText(intr);
+
+                                }catch (Exception e) {
+                                    System.out.println("exception");
+
+                                }       }
+
                         })
 
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -85,18 +87,18 @@ public class KlaroenActivity extends AppCompatActivity implements LoaderManager.
 
                             }
                         })
-                ;
+                        ;
                 AlertDialog Dialog  = alertDialog.create();
-                Dialog.show();
+                    Dialog.show();
+
             }
         });
-
 
         plusquantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // coffee price
-                int basePrice = 10;
+
+                int basePrice = 5;
                 quantity++;
                 displayQuantity();
                 int coffePrice = basePrice * quantity;
@@ -110,22 +112,19 @@ public class KlaroenActivity extends AppCompatActivity implements LoaderManager.
             @Override
             public void onClick(View v) {
 
-                int basePrice = 10;
+                int basePrice = 5;
 
                 if (quantity == 0) {
-                    Toast.makeText(KlaroenActivity.this, "Cant decrease quantity < 0", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AntroewaActivity.this, "Cant decrease quantity < 0", Toast.LENGTH_SHORT).show();
                 } else {
                     quantity--;
                     displayQuantity();
                     int coffePrice = basePrice * quantity;
                     String setnewPrice = String.valueOf(coffePrice);
                     vegetablePrice.setText(setnewPrice);
-
-
                 }
             }
         });
-
 
 
     }
@@ -142,11 +141,9 @@ public class KlaroenActivity extends AppCompatActivity implements LoaderManager.
         values.put(OrderContract.OrderEntry.COLUMN_PRICE, price);
         values.put(OrderContract.OrderEntry.COLUMN_QUANTITY, quantity);
 
-
-
         if (mCurrentCartUri == null) {
             Uri newUri = getContentResolver().insert(OrderContract.OrderEntry.CONTENT_URI, values);
-            if (newUri==null) {
+            if (newUri == null) {
                 Toast.makeText(this, "Failed to add to Cart", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Success  adding to Cart", Toast.LENGTH_SHORT).show();

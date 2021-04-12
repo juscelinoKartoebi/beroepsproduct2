@@ -1,4 +1,4 @@
-package sr.unasat.beroepsproduct2;
+package sr.unasat.beroepsproduct2.Fragment;
 
 import android.os.Bundle;
 
@@ -12,6 +12,10 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import sr.unasat.beroepsproduct2.Adapters.OrderAdapter;
+import sr.unasat.beroepsproduct2.Database.Model;
+import sr.unasat.beroepsproduct2.R;
 
 
 public class MainActivityFragment extends Fragment {

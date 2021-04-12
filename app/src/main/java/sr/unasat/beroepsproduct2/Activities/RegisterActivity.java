@@ -1,4 +1,4 @@
-package sr.unasat.beroepsproduct2;
+package sr.unasat.beroepsproduct2.Activities;
 
 
 import android.content.Intent;
@@ -21,6 +21,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import sr.unasat.beroepsproduct2.Database.DatabaseHelper;
+import sr.unasat.beroepsproduct2.R;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -49,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
         mTextViewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent LoginIntent = new Intent(sr.unasat.beroepsproduct2.RegisterActivity.this, LoginActivity.class);
+                Intent LoginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(LoginIntent);
             }
         });
@@ -77,27 +80,27 @@ public class RegisterActivity extends AppCompatActivity {
                     if (pwd.equals(cnf_pwd)) {
                         boolean is_existent = db.checkUser(user, pwd);
                         if (is_existent){
-                            Toast.makeText(sr.unasat.beroepsproduct2.RegisterActivity.this, "User already exists", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "User already exists", Toast.LENGTH_SHORT).show();
                             return;
                         } else if (!is_existent ){
                             long val = db.addUser(user, pwd);
 
                             if (val > 0) {
-                                Toast.makeText(sr.unasat.beroepsproduct2.RegisterActivity.this, "You have registered", Toast.LENGTH_SHORT).show();
-                                Intent moveToLogin = new Intent(sr.unasat.beroepsproduct2.RegisterActivity.this, LoginActivity.class);
+                                Toast.makeText(RegisterActivity.this, "You have registered", Toast.LENGTH_SHORT).show();
+                                Intent moveToLogin = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(moveToLogin);
                             } else {
-                                Toast.makeText(sr.unasat.beroepsproduct2.RegisterActivity.this, "Registeration Error", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Registeration Error", Toast.LENGTH_SHORT).show();
                             }
 
                         } else {
-                            Toast.makeText(sr.unasat.beroepsproduct2.RegisterActivity.this, "Password is not matching", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Password is not matching", Toast.LENGTH_SHORT).show();
                         }
                     }
 
 
                 } else {
-                    Toast.makeText(sr.unasat.beroepsproduct2.RegisterActivity.this, "Username and Password is empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Username and Password is empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
             }
@@ -154,7 +157,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         @Override
         protected void onProgressUpdate(Object[] values) {
-            Toast.makeText(sr.unasat.beroepsproduct2.RegisterActivity.this, values[0].toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, values[0].toString(), Toast.LENGTH_SHORT).show();
             switch (Integer.parseInt(values[1] + "")) {
                 case 0:
 

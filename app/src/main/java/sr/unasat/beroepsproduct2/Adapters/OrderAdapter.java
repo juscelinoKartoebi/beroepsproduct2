@@ -1,4 +1,4 @@
-package sr.unasat.beroepsproduct2;
+package sr.unasat.beroepsproduct2.Adapters;
 
 
 import android.content.Context;
@@ -14,14 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import sr.unasat.beroepsproduct2.items.AntroewaActivity;
-import sr.unasat.beroepsproduct2.items.BitawiriActivity;
-import sr.unasat.beroepsproduct2.items.BoulangerActivity;
-import sr.unasat.beroepsproduct2.items.KlaroenActivity;
-import sr.unasat.beroepsproduct2.items.KomkommerActivity;
-import sr.unasat.beroepsproduct2.items.KoolActivity;
-import sr.unasat.beroepsproduct2.items.KousebandActivity;
-import sr.unasat.beroepsproduct2.items.PompoenActivity;
+import sr.unasat.beroepsproduct2.Activities.AntroewaActivity;
+import sr.unasat.beroepsproduct2.Activities.BitawiriActivity;
+import sr.unasat.beroepsproduct2.Activities.BoulangerActivity;
+import sr.unasat.beroepsproduct2.Activities.KlaroenActivity;
+import sr.unasat.beroepsproduct2.Activities.KomkommerActivity;
+import sr.unasat.beroepsproduct2.Activities.KoolActivity;
+import sr.unasat.beroepsproduct2.Activities.KousebandActivity;
+import sr.unasat.beroepsproduct2.Activities.PompoenActivity;
+import sr.unasat.beroepsproduct2.Database.Model;
+import sr.unasat.beroepsproduct2.R;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
 

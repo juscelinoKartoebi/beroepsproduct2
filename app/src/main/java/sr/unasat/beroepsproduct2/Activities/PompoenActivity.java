@@ -1,4 +1,4 @@
-package sr.unasat.beroepsproduct2.items;
+package sr.unasat.beroepsproduct2.Activities;
 
 import android.app.AlertDialog;
 import android.app.LoaderManager;
@@ -21,9 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import sr.unasat.beroepsproduct2.Database.OrderContract;
 import sr.unasat.beroepsproduct2.R;
-import sr.unasat.beroepsproduct2.SummaryActivity;
 
-public class AntroewaActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class PompoenActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
 
     ImageView imageView;
@@ -37,26 +36,29 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_antroewa);
+        setContentView(R.layout.activity_pompoen);
 
         imageView = findViewById(R.id.imageViewInfo);
         plusquantity = findViewById(R.id.addquantity);
-        minusquantity = findViewById(R.id.subquantity);
+        minusquantity  = findViewById(R.id.subquantity);
         quantitynumber = findViewById(R.id.quantity);
         vegetableName = findViewById(R.id.vegetableNameinInfo);
         vegetablePrice = findViewById(R.id.vegetablePrice);
         addtoCart = findViewById(R.id.addtocart);
 
 
-        vegetableName.setText("antroewa");
+
+        vegetableName.setText("Pompoen");
+        imageView.setImageResource(R.drawable.pompoen);
 
         addtoCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AntroewaActivity.this, SummaryActivity.class);
+                Intent intent = new Intent(PompoenActivity.this, SummaryActivity.class);
 
 
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(AntroewaActivity.this);
+
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(PompoenActivity.this);
 
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert)
 
@@ -70,9 +72,16 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
 
                                 startActivity(intent);
                                 SaveCart();
-                                int intr = 0;
-                                quantitynumber.setText(intr);                 }
+                                try {
+                                    int intr = 0;
+                                    quantitynumber.setText(intr);
 
+                                }catch (Exception e) {
+                                    System.out.println("exception");
+
+                                }
+
+                            }
                         })
 
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -82,10 +91,9 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
 
                             }
                         })
-                        ;
+                ;
                 AlertDialog Dialog  = alertDialog.create();
-                    Dialog.show();
-
+                Dialog.show();
             }
         });
 
@@ -93,7 +101,7 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
             @Override
             public void onClick(View v) {
 
-                int basePrice = 5;
+                int basePrice = 15;
                 quantity++;
                 displayQuantity();
                 int coffePrice = basePrice * quantity;
@@ -107,19 +115,21 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
             @Override
             public void onClick(View v) {
 
-                int basePrice = 5;
+                int basePrice = 15;
 
                 if (quantity == 0) {
-                    Toast.makeText(AntroewaActivity.this, "Cant decrease quantity < 0", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PompoenActivity.this, "Cant decrease quantity < 0", Toast.LENGTH_SHORT).show();
                 } else {
                     quantity--;
                     displayQuantity();
                     int coffePrice = basePrice * quantity;
                     String setnewPrice = String.valueOf(coffePrice);
                     vegetablePrice.setText(setnewPrice);
+
                 }
             }
         });
+
 
 
     }
@@ -136,9 +146,10 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
         values.put(OrderContract.OrderEntry.COLUMN_PRICE, price);
         values.put(OrderContract.OrderEntry.COLUMN_QUANTITY, quantity);
 
+
         if (mCurrentCartUri == null) {
             Uri newUri = getContentResolver().insert(OrderContract.OrderEntry.CONTENT_URI, values);
-            if (newUri == null) {
+            if (newUri==null) {
                 Toast.makeText(this, "Failed to add to Cart", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Success  adding to Cart", Toast.LENGTH_SHORT).show();
@@ -186,14 +197,14 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
             int quantity = cursor.getColumnIndex(OrderContract.OrderEntry.COLUMN_QUANTITY);
 
 
+
             String nameofvegetable = cursor.getString(name);
             String priceofvegetable = cursor.getString(price);
-            String quantityofvegetable = cursor.getString(quantity);
-
+            String quantityofdrink = cursor.getString(quantity);
 
             vegetableName.setText(nameofvegetable);
             vegetablePrice.setText(priceofvegetable);
-            quantitynumber.setText(quantityofvegetable);
+            quantitynumber.setText(quantityofdrink);
         }
 
 

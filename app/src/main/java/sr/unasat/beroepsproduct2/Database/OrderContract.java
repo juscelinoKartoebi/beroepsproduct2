@@ -7,7 +7,7 @@ public class OrderContract {
 
     public OrderContract() {
     }
-
+//dit is de locatie waarin die tabellen worden opgeslagen.
     public static final String CONTENT_AUTHORITY = "sr.unasat.test.data.OrderProvider";
     public static final Uri BASE_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 

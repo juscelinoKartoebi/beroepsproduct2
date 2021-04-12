@@ -1,4 +1,5 @@
-package sr.unasat.beroepsproduct2.items;
+package sr.unasat.beroepsproduct2.Activities;
+
 
 import android.app.AlertDialog;
 import android.app.LoaderManager;
@@ -21,10 +22,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import sr.unasat.beroepsproduct2.Database.OrderContract;
 import sr.unasat.beroepsproduct2.R;
-import sr.unasat.beroepsproduct2.SummaryActivity;
 
-public class KomkommerActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
-
+public class KoolActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
 
     ImageView imageView;
@@ -38,11 +37,11 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_komkommer);
+        setContentView(R.layout.activity_kool);
 
         imageView = findViewById(R.id.imageViewInfo);
         plusquantity = findViewById(R.id.addquantity);
-        minusquantity  = findViewById(R.id.subquantity);
+        minusquantity = findViewById(R.id.subquantity);
         quantitynumber = findViewById(R.id.quantity);
         vegetableName = findViewById(R.id.vegetableNameinInfo);
         vegetablePrice = findViewById(R.id.vegetablePrice);
@@ -50,16 +49,17 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
 
 
 
-        vegetableName.setText("Komkommer");
+
+        vegetableName.setText("kool");
 
         addtoCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KomkommerActivity.this, SummaryActivity.class);
+                Intent intent = new Intent(KoolActivity.this, SummaryActivity.class);
 
 
 
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(KomkommerActivity.this);
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(KoolActivity.this);
 
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert)
 
@@ -73,8 +73,14 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
 
                                 startActivity(intent);
                                 SaveCart();
-                                int intr = 0;
-                                quantitynumber.setText(intr);
+                                try {
+                                    int intr = 0;
+                                    quantitynumber.setText(intr);
+
+                                }catch (Exception e) {
+                                    System.out.println("exception");
+
+                                }
                             }
                         })
 
@@ -96,7 +102,7 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
             @Override
             public void onClick(View v) {
 
-                int basePrice = 5;
+                int basePrice = 15;
                 quantity++;
                 displayQuantity();
                 int coffePrice = basePrice * quantity;
@@ -110,10 +116,10 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
             @Override
             public void onClick(View v) {
 
-                int basePrice = 5;
+                int basePrice = 15;
 
                 if (quantity == 0) {
-                    Toast.makeText(KomkommerActivity.this, "Cant decrease quantity < 0", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(KoolActivity.this, "Cant decrease quantity < 0", Toast.LENGTH_SHORT).show();
                 } else {
                     quantity--;
                     displayQuantity();
@@ -124,7 +130,6 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
                 }
             }
         });
-
 
 
     }
@@ -144,7 +149,7 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
 
         if (mCurrentCartUri == null) {
             Uri newUri = getContentResolver().insert(OrderContract.OrderEntry.CONTENT_URI, values);
-            if (newUri==null) {
+            if (newUri == null) {
                 Toast.makeText(this, "Failed to add to Cart", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Success  adding to Cart", Toast.LENGTH_SHORT).show();
@@ -156,6 +161,7 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
         return hasAllRequiredValues;
 
     }
+
 
     private void displayQuantity() {
         quantitynumber.setText(String.valueOf(quantity));
@@ -194,6 +200,7 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
             String nameofvegetable = cursor.getString(name);
             String priceofvegetable = cursor.getString(price);
             String quantityofvegetable = cursor.getString(quantity);
+
 
             vegetableName.setText(nameofvegetable);
             vegetablePrice.setText(priceofvegetable);

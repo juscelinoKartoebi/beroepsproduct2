@@ -1,4 +1,4 @@
-package sr.unasat.beroepsproduct2;
+package sr.unasat.beroepsproduct2.Activities;
 
 
 import android.app.LoaderManager;
@@ -18,7 +18,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import sr.unasat.beroepsproduct2.Adapters.CartAdapter;
 import sr.unasat.beroepsproduct2.Database.OrderContract;
+import sr.unasat.beroepsproduct2.R;
+import sr.unasat.beroepsproduct2.Service.NewService;
 
 public class SummaryActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -54,13 +57,13 @@ public class SummaryActivity extends AppCompatActivity implements LoaderManager.
             @Override
             public void onClick(View v) {
 
-                NotificationCompat.Builder builder = new NotificationCompat.Builder(sr.unasat.beroepsproduct2.SummaryActivity.this, "My Notification");
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(SummaryActivity.this, "My Notification");
 
                 builder.setContentText("Your order has been sent");
                 builder.setSmallIcon(R.drawable.ic_launcher_background);
                 builder.setAutoCancel(true);
 
-                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(sr.unasat.beroepsproduct2.SummaryActivity.this);
+                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(SummaryActivity.this);
                 managerCompat.notify(1, builder.build());
 
                 stopService(new Intent(getApplicationContext(), NewService.class));

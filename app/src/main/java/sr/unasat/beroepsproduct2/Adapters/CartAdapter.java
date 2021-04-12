@@ -1,4 +1,4 @@
-package sr.unasat.beroepsproduct2;
+package sr.unasat.beroepsproduct2.Adapters;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -9,6 +9,7 @@ import android.widget.CursorAdapter;
 import android.widget.TextView;
 
 import sr.unasat.beroepsproduct2.Database.OrderContract;
+import sr.unasat.beroepsproduct2.R;
 
 
 public class CartAdapter extends CursorAdapter {

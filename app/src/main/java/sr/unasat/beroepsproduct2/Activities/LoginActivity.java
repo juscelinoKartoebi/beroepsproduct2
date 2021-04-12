@@ -1,4 +1,4 @@
-package sr.unasat.beroepsproduct2;
+package sr.unasat.beroepsproduct2.Activities;
 
 
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import sr.unasat.beroepsproduct2.Database.DatabaseHelper;
+import sr.unasat.beroepsproduct2.R;
 
 public class LoginActivity extends AppCompatActivity {
     EditText mTextUsername;
@@ -31,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         mTextViewRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent registerIntent = new Intent(sr.unasat.beroepsproduct2.LoginActivity.this, RegisterActivity.class);
+                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(registerIntent);
             }
         });
@@ -44,12 +47,12 @@ public class LoginActivity extends AppCompatActivity {
                 Boolean res = db.checkUser(user, pwd);
                 if(res == true)
                 {
-                    Intent HomePage = new Intent(sr.unasat.beroepsproduct2.LoginActivity.this, MainActivity.class);
+                    Intent HomePage = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(HomePage);
                 }
                 else
                 {
-                    Toast.makeText(sr.unasat.beroepsproduct2.LoginActivity.this,"Login Error",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"Login Error",Toast.LENGTH_SHORT).show();
                 }
             }
         });

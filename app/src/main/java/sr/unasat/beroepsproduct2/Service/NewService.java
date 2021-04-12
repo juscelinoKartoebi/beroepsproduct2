@@ -1,4 +1,4 @@
-package sr.unasat.beroepsproduct2;
+package sr.unasat.beroepsproduct2.Service;
 
 import android.app.Service;
 import android.content.Intent;
@@ -54,3 +54,4 @@ public class NewService extends Service {
         return null;
     }
 }
+

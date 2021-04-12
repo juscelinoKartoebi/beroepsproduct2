@@ -14,18 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Test">
-        <activity android:name=".RegisterActivity"/>
-        <activity android:name=".SummaryActivity" />
-        <activity android:name=".items.AntroewaActivity" />
-        <activity android:name=".items.BitawiriActivity" />
-        <activity android:name=".items.PompoenActivity" />
-        <activity android:name=".items.BoulangerActivity" />
-        <activity android:name=".items.KlaroenActivity" />
-        <activity android:name=".items.KousebandActivity" />
-        <activity android:name=".items.KomkommerActivity" />
-        <activity android:name=".items.KoolActivity" />
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".LoginActivity" >
+        <activity android:name=".Activities.RegisterActivity"/>
+        <activity android:name=".Activities.SummaryActivity" />
+        <activity android:name=".Activities.AntroewaActivity" />
+        <activity android:name=".Activities.BitawiriActivity" />
+        <activity android:name=".Activities.PompoenActivity" />
+        <activity android:name=".Activities.BoulangerActivity" />
+        <activity android:name=".Activities.KlaroenActivity" />
+        <activity android:name=".Activities.KousebandActivity" />
+        <activity android:name=".Activities.KomkommerActivity" />
+        <activity android:name=".Activities.KoolActivity" />
+        <activity android:name=".Activities.MainActivity"/>
+        <activity android:name=".Activities.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".NewService"/>
+        <service android:name=".Service.NewService"></service>
 
         <provider
             android:name=".Database.OrderProvider"

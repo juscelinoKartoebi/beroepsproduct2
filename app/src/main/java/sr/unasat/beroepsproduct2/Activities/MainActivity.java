@@ -1,15 +1,14 @@
-package sr.unasat.beroepsproduct2;
+package sr.unasat.beroepsproduct2.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import java.util.ArrayList;
-import java.util.List;
+
+import sr.unasat.beroepsproduct2.Fragment.MainActivityFragment;
+import sr.unasat.beroepsproduct2.R;
 
 public class MainActivity extends AppCompatActivity {
 
