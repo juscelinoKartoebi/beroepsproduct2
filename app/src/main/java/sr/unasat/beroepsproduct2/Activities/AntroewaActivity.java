@@ -30,7 +30,7 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
     TextView quantitynumber, vegetableName, vegetablePrice;
     Button addtoCart;
     int quantity;
-    public Uri mCurrentCartUri;
+    public Uri mCurrentCartUri; //toegang tot database
     boolean hasAllRequiredValues = false;
 
     @Override
@@ -69,14 +69,7 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
 
                                 startActivity(intent);
                                 SaveCart();
-                                try {
-                                    int intr = 0;
-                                    quantitynumber.setText(intr);
-
-                                }catch (Exception e) {
-                                    System.out.println("exception");
-
-                                }       }
+                                     }
 
                         })
 
@@ -162,7 +155,7 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
     }
 
     @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) { //loader is er om java classes in java virtual machine te loaden
         String[] projection = {OrderContract.OrderEntry._ID,
                 OrderContract.OrderEntry.COLUMN_NAME,
                 OrderContract.OrderEntry.COLUMN_PRICE,
@@ -205,7 +198,7 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onLoaderReset(Loader<Cursor> loader) { //wanneer de back button word gedrukt
 
 
         vegetableName.setText("");

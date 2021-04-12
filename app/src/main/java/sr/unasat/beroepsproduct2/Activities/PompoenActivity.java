@@ -72,14 +72,6 @@ public class PompoenActivity extends AppCompatActivity implements LoaderManager.
 
                                 startActivity(intent);
                                 SaveCart();
-                                try {
-                                    int intr = 0;
-                                    quantitynumber.setText(intr);
-
-                                }catch (Exception e) {
-                                    System.out.println("exception");
-
-                                }
 
                             }
                         })

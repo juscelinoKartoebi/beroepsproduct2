@@ -73,14 +73,7 @@ public class KoolActivity extends AppCompatActivity implements LoaderManager.Loa
 
                                 startActivity(intent);
                                 SaveCart();
-                                try {
-                                    int intr = 0;
-                                    quantitynumber.setText(intr);
 
-                                }catch (Exception e) {
-                                    System.out.println("exception");
-
-                                }
                             }
                         })
 

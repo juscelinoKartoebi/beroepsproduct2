@@ -33,8 +33,6 @@ public class RegisterActivity extends AppCompatActivity {
     EditText mTextCnfPassword;
     Button mButtonRegister;
     Button mButtonGenerate;
-
-
     TextView mTextViewLogin;
 
     @Override
