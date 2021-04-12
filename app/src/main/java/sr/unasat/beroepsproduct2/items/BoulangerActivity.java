@@ -73,6 +73,7 @@ public class BoulangerActivity extends AppCompatActivity implements LoaderManage
 
                                 startActivity(intent);
                                 SaveCart();
+                                quantitynumber.setText(null);
                             }
                         })
 

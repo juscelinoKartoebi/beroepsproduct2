@@ -74,6 +74,7 @@ public class KoolActivity extends AppCompatActivity implements LoaderManager.Loa
 
                                 startActivity(intent);
                                 SaveCart();
+                                quantitynumber.setText(null);
                             }
                         })
 

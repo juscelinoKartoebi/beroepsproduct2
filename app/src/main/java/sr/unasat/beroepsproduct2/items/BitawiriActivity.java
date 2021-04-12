@@ -26,7 +26,6 @@ import sr.unasat.beroepsproduct2.SummaryActivity;
 
 public class BitawiriActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
-
     ImageView imageView;
     ImageButton plusquantity, minusquantity;
     TextView quantitynumber, vegetableName, vegetablePrice;
@@ -71,6 +70,7 @@ public class BitawiriActivity extends AppCompatActivity implements LoaderManager
 
                                 startActivity(intent);
                                 SaveCart();
+                                quantitynumber.setText(null);
                             }
         })
 

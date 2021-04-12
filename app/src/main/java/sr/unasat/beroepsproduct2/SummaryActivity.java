@@ -31,6 +31,8 @@ public class SummaryActivity extends AppCompatActivity implements LoaderManager.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
 
+        startService(new Intent(this, NewService.class));
+
 
         Button clearthedata = findViewById(R.id.clearthedatabase);
         sendorder = findViewById(R.id.sendorder);
@@ -60,6 +62,8 @@ public class SummaryActivity extends AppCompatActivity implements LoaderManager.
 
                 NotificationManagerCompat managerCompat = NotificationManagerCompat.from(sr.unasat.beroepsproduct2.SummaryActivity.this);
                 managerCompat.notify(1, builder.build());
+
+                stopService(new Intent(getApplicationContext(), NewService.class));
 
             }
         });

@@ -73,6 +73,7 @@ public class KomkommerActivity extends AppCompatActivity implements LoaderManage
 
                                 startActivity(intent);
                                 SaveCart();
+                                quantitynumber.setText(null);
                             }
                         })
 

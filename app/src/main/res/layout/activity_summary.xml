@@ -19,6 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -32,12 +33,19 @@
                 android:text="ORDER SUMMARY"
                 android:textSize="30sp" />
 
-            <ListView
-                android:id="@+id/list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="40dp" >
-            </ListView>
+
+
+                <ListView
+
+
+            android:id="@+id/list"
+                    android:layout_width="fill_parent"
+                    android:layout_height="400dp"
+                    android:divider="@color/black"
+                    android:dividerHeight="1dp"
+                    android:paddingTop="40dp">
+
+                </ListView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

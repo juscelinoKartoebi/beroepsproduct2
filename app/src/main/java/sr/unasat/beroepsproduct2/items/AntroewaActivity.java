@@ -70,6 +70,7 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
 
                                 startActivity(intent);
                                 SaveCart();
+                                quantitynumber.setText(null);
                             }
 
                         })

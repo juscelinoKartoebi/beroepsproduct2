@@ -33,6 +33,8 @@
             </intent-filter>
         </activity>
 
+        <service android:name=".NewService"/>
+
         <provider
             android:name=".Database.OrderProvider"
             android:authorities="sr.unasat.test.data.OrderProvider"
