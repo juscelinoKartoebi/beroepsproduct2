@@ -97,8 +97,8 @@ public class BoulangerActivity extends AppCompatActivity implements LoaderManage
                 int basePrice = 7;
                 quantity++;
                 displayQuantity();
-                int coffePrice = basePrice * quantity;
-                String setnewPrice = String.valueOf(coffePrice);
+                int veggiePrice = basePrice * quantity;
+                String setnewPrice = String.valueOf(veggiePrice);
                 vegetablePrice.setText(setnewPrice);
 
             }
@@ -115,8 +115,8 @@ public class BoulangerActivity extends AppCompatActivity implements LoaderManage
                 } else {
                     quantity--;
                     displayQuantity();
-                    int coffePrice = basePrice * quantity;
-                    String setnewPrice = String.valueOf(coffePrice);
+                    int veggiePrice = basePrice * quantity;
+                    String setnewPrice = String.valueOf(veggiePrice);
                     vegetablePrice.setText(setnewPrice);
 
                 }

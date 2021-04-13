@@ -98,8 +98,8 @@ public class KoolActivity extends AppCompatActivity implements LoaderManager.Loa
                 int basePrice = 15;
                 quantity++;
                 displayQuantity();
-                int coffePrice = basePrice * quantity;
-                String setnewPrice = String.valueOf(coffePrice);
+                int veggiePrice = basePrice * quantity;
+                String setnewPrice = String.valueOf(veggiePrice);
                 vegetablePrice.setText(setnewPrice);
 
             }
@@ -116,8 +116,8 @@ public class KoolActivity extends AppCompatActivity implements LoaderManager.Loa
                 } else {
                     quantity--;
                     displayQuantity();
-                    int coffePrice = basePrice * quantity;
-                    String setnewPrice = String.valueOf(coffePrice);
+                    int veggiePrice = basePrice * quantity;
+                    String setnewPrice = String.valueOf(veggiePrice);
                     vegetablePrice.setText(setnewPrice);
 
                 }

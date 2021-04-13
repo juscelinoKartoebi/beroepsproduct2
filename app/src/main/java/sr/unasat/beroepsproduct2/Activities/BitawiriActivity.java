@@ -94,8 +94,8 @@ public class BitawiriActivity extends AppCompatActivity implements LoaderManager
                 int basePrice = 10;
                 quantity++;
                 displayQuantity();
-                int coffePrice = basePrice * quantity;
-                String setnewPrice = String.valueOf(coffePrice);
+                int veggiePrice = basePrice * quantity;
+                String setnewPrice = String.valueOf(veggiePrice);
                 vegetablePrice.setText(setnewPrice);
 
 
@@ -114,8 +114,8 @@ public class BitawiriActivity extends AppCompatActivity implements LoaderManager
                 } else {
                     quantity--;
                     displayQuantity();
-                    int coffePrice = basePrice * quantity;
-                    String setnewPrice = String.valueOf(coffePrice);
+                    int veggiePrice = basePrice * quantity;
+                    String setnewPrice = String.valueOf(veggiePrice);
                     vegetablePrice.setText(setnewPrice);
 
                 }

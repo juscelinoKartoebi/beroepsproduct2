@@ -95,8 +95,8 @@ public class KousebandActivity extends AppCompatActivity implements LoaderManage
                 int basePrice = 5;
                 quantity++;
                 displayQuantity();
-                int coffePrice = basePrice * quantity;
-                String setnewPrice = String.valueOf(coffePrice);
+                int veggiePrice = basePrice * quantity;
+                String setnewPrice = String.valueOf(veggiePrice);
                 vegetablePrice.setText(setnewPrice);
 
             }
@@ -113,8 +113,8 @@ public class KousebandActivity extends AppCompatActivity implements LoaderManage
                 } else {
                     quantity--;
                     displayQuantity();
-                    int coffePrice = basePrice * quantity;
-                    String setnewPrice = String.valueOf(coffePrice);
+                    int veggiePrice = basePrice * quantity;
+                    String setnewPrice = String.valueOf(veggiePrice);
                     vegetablePrice.setText(setnewPrice);
 
                 }

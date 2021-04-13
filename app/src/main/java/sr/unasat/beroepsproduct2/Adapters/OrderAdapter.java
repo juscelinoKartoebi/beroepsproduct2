@@ -22,7 +22,6 @@ import sr.unasat.beroepsproduct2.Activities.KomkommerActivity;
 import sr.unasat.beroepsproduct2.Activities.KoolActivity;
 import sr.unasat.beroepsproduct2.Activities.KousebandActivity;
 import sr.unasat.beroepsproduct2.Activities.PompoenActivity;
-import sr.unasat.beroepsproduct2.Database.Model;
 import sr.unasat.beroepsproduct2.R;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {

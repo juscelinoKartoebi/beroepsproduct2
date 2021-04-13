@@ -93,12 +93,12 @@ public class KlaroenActivity extends AppCompatActivity implements LoaderManager.
         plusquantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // coffee price
+
                 int basePrice = 10;
                 quantity++;
                 displayQuantity();
-                int coffePrice = basePrice * quantity;
-                String setnewPrice = String.valueOf(coffePrice);
+                int veggiePrice = basePrice * quantity;
+                String setnewPrice = String.valueOf(veggiePrice);
                 vegetablePrice.setText(setnewPrice);
 
             }
@@ -115,8 +115,8 @@ public class KlaroenActivity extends AppCompatActivity implements LoaderManager.
                 } else {
                     quantity--;
                     displayQuantity();
-                    int coffePrice = basePrice * quantity;
-                    String setnewPrice = String.valueOf(coffePrice);
+                    int veggiePrice = basePrice * quantity;
+                    String setnewPrice = String.valueOf(veggiePrice);
                     vegetablePrice.setText(setnewPrice);
 
 

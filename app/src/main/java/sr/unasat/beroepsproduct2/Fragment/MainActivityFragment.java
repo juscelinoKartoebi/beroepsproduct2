@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sr.unasat.beroepsproduct2.Adapters.OrderAdapter;
-import sr.unasat.beroepsproduct2.Database.Model;
+import sr.unasat.beroepsproduct2.Adapters.Model;
 import sr.unasat.beroepsproduct2.R;
 
 

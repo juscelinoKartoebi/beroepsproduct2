@@ -1,4 +1,4 @@
-package sr.unasat.beroepsproduct2.Database;
+package sr.unasat.beroepsproduct2.Adapters;
 
 public class Model {
 
