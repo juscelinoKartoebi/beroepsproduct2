@@ -34,7 +34,7 @@ public class SummaryActivity extends AppCompatActivity implements LoaderManager.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
 
-        startService(new Intent(this, NewService.class));
+
 
 
         Button clearthedata = findViewById(R.id.clearthedatabase);
@@ -66,7 +66,8 @@ public class SummaryActivity extends AppCompatActivity implements LoaderManager.
                 NotificationManagerCompat managerCompat = NotificationManagerCompat.from(SummaryActivity.this);
                 managerCompat.notify(1, builder.build());
 
-                stopService(new Intent(getApplicationContext(), NewService.class));
+                startService(new Intent(getApplicationContext(), NewService.class));
+//                stopService(new Intent(getApplicationContext(), NewService.class));
 
             }
         });
@@ -102,6 +103,8 @@ public class SummaryActivity extends AppCompatActivity implements LoaderManager.
 
         mAdapter.swapCursor(null);
     }
+
+    //options menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

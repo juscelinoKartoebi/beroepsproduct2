@@ -35,7 +35,7 @@ public class CartAdapter extends CursorAdapter {
         price = view.findViewById(R.id.priceinOrderSummary);
         quantity = view.findViewById(R.id.quantityinOrderSummary);
 
-
+//de waarden ophalen door eerst de positie van hun kolommen op te halen
         int name = cursor.getColumnIndex(OrderContract.OrderEntry.COLUMN_NAME);
         int priceofvegetable = cursor.getColumnIndex(OrderContract.OrderEntry.COLUMN_PRICE);
         int quantityofvegetable = cursor.getColumnIndex(OrderContract.OrderEntry.COLUMN_QUANTITY);

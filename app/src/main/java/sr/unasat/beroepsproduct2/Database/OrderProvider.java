@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
 public class OrderProvider extends ContentProvider {
-
+//dit is nodig om de path in onze wijziging te defineren
     public static final int ORDER = 100;
 
     public static UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -51,6 +51,7 @@ public class OrderProvider extends ContentProvider {
         return null;
     }
 
+    //inserting data
     @Override
     public Uri insert(Uri uri,  ContentValues values) {
 
@@ -80,7 +81,7 @@ public class OrderProvider extends ContentProvider {
             throw new IllegalArgumentException("price is Required");
         }
 
-
+//writing in de database
         SQLiteDatabase database = mHelper.getWritableDatabase();
         long id = database.insert(OrderContract.OrderEntry.TABLE_NAME, null, values);
 
@@ -94,7 +95,7 @@ public class OrderProvider extends ContentProvider {
     @Override
     public int delete( Uri uri,  String selection,  String[] selectionArgs) {
 
-
+//de data word gecleared nadat een order is gemaakt
         int rowsDeleted;
         SQLiteDatabase database = mHelper.getWritableDatabase();
         int match = sUriMatcher.match(uri);

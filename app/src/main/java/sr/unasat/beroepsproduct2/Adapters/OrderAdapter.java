@@ -47,6 +47,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
+        //hier zullen we de positie vinden en beginnen met het instellen van de output op onze weergaven
+
         String nameofVegetable = modelList.get(position).getmVegetableName();
         String descriptionofVegetable = modelList.get(position).getmVegetableDetail();
         int images = modelList.get(position).getmVegetablePhoto();
@@ -62,9 +64,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         return modelList.size();
     }
 
+//om onze views responsive te maken, kunnen we onclicklistener op onze recyclerview implementeren
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+//hier zullen we de views vinden waarop we onze gegevens zullen inflaten
 
         TextView mVegetableName, mVegetableDescription;
         ImageView imageView;
