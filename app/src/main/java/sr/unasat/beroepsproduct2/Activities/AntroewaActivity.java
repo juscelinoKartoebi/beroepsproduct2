@@ -178,7 +178,7 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
         }
 
         if (cursor.moveToFirst()) {
-
+//om de positie van de kollommen op te halen
             int name = cursor.getColumnIndex(OrderContract.OrderEntry.COLUMN_NAME);
             int price = cursor.getColumnIndex(OrderContract.OrderEntry.COLUMN_PRICE);
             int quantity = cursor.getColumnIndex(OrderContract.OrderEntry.COLUMN_QUANTITY);
@@ -194,11 +194,10 @@ public class AntroewaActivity extends AppCompatActivity implements LoaderManager
             quantitynumber.setText(quantityofvegetable);
         }
 
-
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) { //wanneer de back button word gedrukt
+    public void onLoaderReset(Loader<Cursor> loader) {
 
 
         vegetableName.setText("");

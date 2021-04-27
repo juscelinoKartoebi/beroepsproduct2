@@ -28,8 +28,6 @@ public class CartAdapter extends CursorAdapter {
     public void bindView(View view, Context context, Cursor cursor) {
 
         TextView vegetableName, price, quantity;
-        String total;
-
 
         vegetableName = view.findViewById(R.id.vegetableNameinOrderSummary);
         price = view.findViewById(R.id.priceinOrderSummary);

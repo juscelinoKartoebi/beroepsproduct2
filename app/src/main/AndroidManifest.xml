@@ -26,6 +26,7 @@
         <activity android:name=".Activities.KomkommerActivity" />
         <activity android:name=".Activities.KoolActivity" />
         <activity android:name=".Activities.MainActivity"/>
+        <activity android:name=".Activities.UpdateUserActivity"/>
         <activity android:name=".Activities.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

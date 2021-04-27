@@ -5,49 +5,65 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import sr.unasat.beroepsproduct2.Fragment.MainActivityFragment;
 import sr.unasat.beroepsproduct2.R;
 
 public class MainActivity extends AppCompatActivity {
 
-//    List<Model> modelList;
-//    RecyclerView recyclerView;
-//    OrderAdapter mAdapter;
+    String username;
+    String password;
+    Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        extras = new Bundle();
+        extras = getIntent().getExtras();
+
+        username = extras.getString("username");
+        password = extras.getString("password");
+
+
         MainActivityFragment mainActivityFragment = new MainActivityFragment();
         loadfragment(mainActivityFragment);
 
-//        modelList = new ArrayList<>();
-//        modelList.add(new Model("Komkommer", getString(R.string.komkommer), R.drawable.komkommer));
-//        modelList.add(new Model("pompoen", getString(R.string.pompoen), R.drawable.pompoen));
-//        modelList.add(new Model("Kouseband", getString(R.string.kouseband), R.drawable.kouseband));
-//        modelList.add(new Model("boulanger", getString(R.string.boulanger), R.drawable.boulanger));
-//        modelList.add(new Model("klaroen", getString(R.string.klaroen), R.drawable.klaroen));
-//        modelList.add(new Model("kool", getString(R.string.kool), R.drawable.kool));
-//        modelList.add(new Model("bitawiri", getString(R.string.bitawiri), R.drawable.bitawiri));
-//        modelList.add(new Model("antroewa", getString(R.string.antroewa), R.drawable.antroewa));
-//
-//        recyclerView = findViewById(R.id.recyclerView);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(null));
-//
-//        mAdapter = new OrderAdapter(this, modelList);
-//        recyclerView.setAdapter(mAdapter);
-
-
-
 
     }
+
     public void loadfragment(Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.content_frame, fragment);
         transaction.commit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu_update_password, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.password_update) {
+            Intent intent = new Intent(this, UpdateUserActivity.class);
+            intent.putExtra("username", username);
+            intent.putExtra("password", password);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

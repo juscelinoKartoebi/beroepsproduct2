@@ -9,7 +9,7 @@ public class OrderContract {
     }
 //dit is de locatie waarin die tabellen worden opgeslagen.
     public static final String CONTENT_AUTHORITY = "sr.unasat.test.data.OrderProvider";
-    public static final Uri BASE_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
+    public static final Uri BASE_URI = Uri.parse("content://" + CONTENT_AUTHORITY); // creert een new uri object van een formated string.
 
     public static final String PATH = "ordering";
 

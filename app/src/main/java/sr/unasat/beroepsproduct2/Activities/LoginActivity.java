@@ -48,6 +48,8 @@ public class LoginActivity extends AppCompatActivity {
                 if(res == true)
                 {
                     Intent HomePage = new Intent(LoginActivity.this, MainActivity.class);
+                    HomePage.putExtra("username", mTextUsername.getText().toString());
+                    HomePage.putExtra("password",mTextPassword.getText().toString());
                     startActivity(HomePage);
                 }
                 else
