@@ -37,9 +37,6 @@ public class UpdateUserActivity extends AppCompatActivity {
          gebruikerModel = db.vindGebruiker(bundle.getString("username")
         );
 
-
-
-        db = new DatabaseHelper(this);
         mTextUsername = (EditText)findViewById(R.id.edittext_username);
         mTextPassword = (EditText)findViewById(R.id.edittext_password);
         mTextConfirmPassword = (EditText)findViewById(R.id.confirm_password);
@@ -49,6 +46,7 @@ public class UpdateUserActivity extends AppCompatActivity {
         if (gebruikerModel != null){
             mTextUsername.setText(gebruikerModel.getUsername());
             mTextPassword.setText(gebruikerModel.getPassword());
+            mTextConfirmPassword.setText(gebruikerModel.getPassword());
         }
 
 
