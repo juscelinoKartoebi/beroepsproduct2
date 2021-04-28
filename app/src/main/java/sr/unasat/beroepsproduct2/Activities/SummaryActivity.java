@@ -121,6 +121,11 @@ public class SummaryActivity extends AppCompatActivity implements LoaderManager.
             Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
         }
+        if (id == R.id.logout) {
+            Intent intent = new Intent(this,LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         return super.onOptionsItemSelected(item);
     }
